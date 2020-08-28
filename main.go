@@ -127,14 +127,6 @@ func returnEntrancePage(ctx *gin.Context) {
 
 //messagesに含まれるものを jsonで返す
 func fetchMessage(ctx *gin.Context) {
-
-	session := sessions.Default(ctx)
-
-	if session.Get("UserId") == nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": "Bad Request"})
-		return
-	}
-
 	messagesInDB := dbGetAll()
 	// データベースに保存されているメッセージの形式から、クライアントへ返す形式に変換する
 	messages := make([]ResponseMessage, len(messagesInDB))
