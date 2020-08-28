@@ -127,6 +127,14 @@ func returnEntrancePage(ctx *gin.Context) {
 
 //messagesに含まれるものを jsonで返す
 func fetchMessage(ctx *gin.Context) {
+
+	session := sessions.Default(ctx)
+
+	if session.Get("UserId") == nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": "Bad Request"})
+		return
+	}
+
 	messagesInDB := dbGetAll()
 	// データベースに保存されているメッセージの形式から、クライアントへ返す形式に変換する
 	messages := make([]ResponseMessage, len(messagesInDB))
@@ -173,6 +181,8 @@ func handleAddMessage(ctx *gin.Context) {
 	dbInsert(req.Message, user.ID)
 
 	ctx.JSON(http.StatusOK, gin.H{"success": true})
+
+	return
 }
 
 // UpdateMessageRequest は、クライアントからのメッセージ追加要求のフォーマットです。
@@ -302,6 +312,7 @@ func ChallengeRegister(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, gin.H{"success": true})
+	return
 }
 
 //ログイン処理
