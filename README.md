@@ -12,3 +12,7 @@
 その後、以下のコマンドを実行すれば使用できます。
 
 `sh runAll.sh`
+
+# アプリケーション内の画像
+<img width="400px" src="https://user-images.githubusercontent.com/45893170/132974231-b87a08a4-f4a4-4d1f-845a-9b89fc36b0e4.png"> <img width="400px" src="https://user-images.githubusercontent.com/45893170/132974233-30be64ce-38a1-4b20-b4d1-b1cc1ca4b253.png">
+<img width="400px" src="https://user-images.githubusercontent.com/45893170/132974235-337db2f8-a0e2-4849-9020-28219ca53ffc.png"> <img width="400px" src="https://user-images.githubusercontent.com/45893170/132974237-4570c36d-6ebe-4bf9-9402-2f748421107e.png">
